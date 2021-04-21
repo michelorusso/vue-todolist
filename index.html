@@ -7,6 +7,9 @@
 
     <title>TODOLIST</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
@@ -18,11 +21,54 @@
 
 </head>
 <body>
+
+    <div id="root">
+
+        <section class="container">
+
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="https://www.boolean.careers/images/misc/logo.png" alt="Boolean">
+            </div>
+            <!-- END LOGO -->
+
+            <!-- INPUT-USER -->
+            <div class="input-user">
+
+                <input v-model="inputTextUser" @keyup.enter="addTodo" type="text" placeholder="New Todo">
+
+                <button class="btn" @click="addTodo" >Aggiungi</button>
+
+            </div>
+            <!-- ENDINPUT-USER -->
+
+            <!-- TODO-LIST -->
+            <div class="todo-list">
+
+                <ul class="menu-list">
+                    
+                    <li v-for="todo in todolist">
+                        {{ todo }}
+                        <span class="delete">
+                            <i class="fas fa-times"></i>
+                        </span>
+                        
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- END TODO-LIST -->
+
+
+        </section>
+
+    </div>
     
 
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" src="js/script.js"></script>
-    
+
 </body>
 </html>
