@@ -23,6 +23,12 @@ var app = new Vue(
                 this.inputTextUser = '';
             }
 
+        },
+        // - ogni item ha una "x" associata: cliccando su di essa, l'item viene rimosso dalla lista
+        deleteTodoList(index) {
+            // console.log(index);
+            this.todolist.splice(index, 1);
+            console.log(this.todolist);
         }
     }
 });

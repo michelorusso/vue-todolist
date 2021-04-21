@@ -47,13 +47,15 @@
 
                 <ul class="menu-list">
                     
-                    <li v-for="todo in todolist">
+                    <!-- TODO -->
+                    <li v-for="(todo, index) in todolist">
                         {{ todo }}
-                        <span class="delete">
+                        <span class="delete" @click="deleteTodoList(index)">
                             <i class="fas fa-times"></i>
                         </span>
                         
                     </li>
+                    <!-- END TODO -->
 
                 </ul>
 
