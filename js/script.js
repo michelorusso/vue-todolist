@@ -8,9 +8,21 @@ var app = new Vue(
     data: {  
         inputTextUser: '',
         todolist: [
-            'Fare i compiti',
-            'Fare la spesa',
-            'Fare il bucato'
+            {
+                text: 'Fare i compiti',
+                time: dayjs().format('HH:mm:ss'),
+                checked: false
+            },
+            {
+                text: 'Fare la spesa',
+                time: dayjs().format('HH:mm:ss'),
+                checked: false
+            },
+            {
+                text: 'Fare il bucato',
+                time: dayjs().format('HH:mm:ss'),
+                checked: false
+            }
         ]
     }, 
     methods: {
@@ -19,7 +31,10 @@ var app = new Vue(
 
             // se il valore di inputTextUser è maggiore di 0 allora stampiamo
             if( this.inputTextUser.length > 0 ) {
-                this.todolist.push(this.inputTextUser);
+                this.todolist.push( {
+                    text: this.inputTextUser,
+                    time: dayjs().format('HH:mm:ss')
+                });
                 this.inputTextUser = '';
             }
 
@@ -28,7 +43,14 @@ var app = new Vue(
         deleteTodoList(index) {
             // console.log(index);
             this.todolist.splice(index, 1);
-            console.log(this.todolist);
+            // console.log(this.todolist);
+        },
+        // BONUS
+        checkTodoList(index) {
+            this.todolist[index].checked = !this.todolist[index].checked;
+        },
+        deleteTodoList() {
+            this.todolist = [] ;
         }
     }
 });

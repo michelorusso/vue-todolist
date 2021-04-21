@@ -38,20 +38,20 @@ img {
     min-width: 280px;
     border-radius: 10px;
     border: 1px solid;
-    box-shadow: 2px 2px 5px 0 #b3b0b0;
     margin-right: 10px;
 }
 
 .input-user input:focus,
-.input-user .btn:focus {
+.input-user .btn:focus,
+.reset button {
     outline: none;
 }
 
-.input-user .btn {
+.input-user .btn,
+.reset button {
     padding: 6px 12px;
     border-radius: 10px;
     border: 1px solid;
-    box-shadow: 2px 2px 5px 0 #b3b0b0;
     cursor: pointer;
 }
 
@@ -60,6 +60,7 @@ img {
     background-color: #f4f7f7;
     margin-top: 25px;
     padding: 3%;
+    box-shadow: 0 0 10px 0 #b3b0b0;
 }
 
 .menu-list {
@@ -72,13 +73,52 @@ img {
     font-weight: 500;
 }
 
-.delete {
+.menu-list li:hover {
+    background-color: white;
+}
+
+.option {
     float: right;
+}
+
+.delete {
     cursor: pointer;
+}
+
+.delete:hover {
+    color: red;
 }
 
 .empty {
     padding: 5px 10px;
     font-weight: 500;
     color: lightgray;
+}
+
+/* BONUS */
+.timeStartTodo {
+    color: lightgray;
+    padding-right: 15px;
+}
+
+.checkTodo {
+    cursor: pointer;
+    padding-right: 15px;
+}
+
+.checkTodo:hover {
+    color: green;
+}
+
+.check {
+    background-color: lightgreen;
+}
+
+.reset {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.reset i {
+    padding-right: 5px;
 }

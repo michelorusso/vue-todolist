@@ -13,6 +13,10 @@
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
+    <!-- DAY.JS -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -55,12 +59,30 @@
                     class="menu-list">
                     
                     <!-- TODO -->
-                    <li v-for="(todo, index) in todolist">
-                        {{ todo }}
-                        <span class="delete" @click="deleteTodoList(index)">
-                            <i class="fas fa-times"></i>
-                        </span>
+                    <li 
+                        v-for="(todo, index) in todolist"
+                        :class="{ 'check': todo.checked }"
+                    >
+                        {{ todo.text }}
+
+                        <div class="option">
+
+                            <!-- bonus -->
+                            <span class="timeStartTodo">
+                                {{ todo.time }}
+                            </span>
+
+                            <span class="checkTodo" @click="checkTodoList(index)">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <!-- end bonus -->
                         
+                            <span class="delete" @click="deleteTodoList(index)">
+                                <i class="fas fa-times"></i>
+                            </span>
+
+                        </div>
+                         
                     </li>
                     <!-- END TODO -->
 
@@ -70,6 +92,9 @@
             </div>
             <!-- END TODO-LIST -->
 
+            <div class="reset">
+                <button @click="deleteTodoList"><i class="fas fa-trash-alt"></i>Delete</button>
+            </div>
 
         </section>
 
