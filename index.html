@@ -35,8 +35,13 @@
             <!-- INPUT-USER -->
             <div class="input-user">
 
-                <input v-model="inputTextUser" @keyup.enter="addTodo" type="text" placeholder="New Todo">
+                <!-- - predisporre un input per aggiungere un nuovo item alla lista -->
+                <input
+                    v-model="inputTextUser"
+                    @keyup.enter="addTodo"
+                    type="text" placeholder="New Todo">
 
+                    <!-- digitando il tasto invio oppure ciccando su un pulsante, il testo digitato viene aggiunto alla lista -->
                 <button class="btn" @click="addTodo" >Aggiungi</button>
 
             </div>
@@ -45,7 +50,9 @@
             <!-- TODO-LIST -->
             <div class="todo-list">
 
-                <ul class="menu-list">
+                <ul
+                    v-if="todolist.length > 0" 
+                    class="menu-list">
                     
                     <!-- TODO -->
                     <li v-for="(todo, index) in todolist">
@@ -59,6 +66,7 @@
 
                 </ul>
 
+                <div class="empty" v-else>empty</div>
             </div>
             <!-- END TODO-LIST -->
 
