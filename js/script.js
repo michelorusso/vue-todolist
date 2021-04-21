@@ -33,7 +33,8 @@ var app = new Vue(
             if( this.inputTextUser.length > 0 ) {
                 this.todolist.push( {
                     text: this.inputTextUser,
-                    time: dayjs().format('HH:mm:ss')
+                    time: dayjs().format('HH:mm:ss'),
+                    checked: false
                 });
                 this.inputTextUser = '';
             }
@@ -49,7 +50,7 @@ var app = new Vue(
         checkTodoList(index) {
             this.todolist[index].checked = !this.todolist[index].checked;
         },
-        deleteTodoList() {
+        deleteAllTodoList() {
             this.todolist = [] ;
         }
     }
