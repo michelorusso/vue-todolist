@@ -100,6 +100,7 @@ img {
 .timeStartTodo {
     color: lightgray;
     padding-right: 15px;
+    font-size: 12px
 }
 
 .checkTodo {
